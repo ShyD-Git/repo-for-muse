@@ -24,8 +24,6 @@
         --ok-soft: #e5f3ec;
         --warn: #9a5b00;
         --warn-soft: #fdf1dc;
-        --radius-card: 18px;
-        --radius-btn: 12px;
       }
       @media (prefers-color-scheme: dark) {
         :root {
@@ -51,41 +49,32 @@
         background: var(--bg);
         color: var(--ink);
         font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
-        line-height: 1.55;
+        line-height: 1.5;
       }
       button, input { font: inherit; }
-      button, [role="button"], a.btn { min-height: 48px; }
+      button, a.btn { min-height: 48px; }
       .wrap {
-        max-width: 680px;
+        max-width: 560px;
         margin: 0 auto;
-        padding: 20px 16px 48px;
+        padding: 16px 14px 28px;
       }
       .lede {
-        font-size: 1.06rem;
-        margin: 4px 0 18px;
+        font-size: 1rem;
+        margin: 2px 0 14px;
       }
       .lede strong { font-weight: 700; }
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-card);
-        padding: 18px;
-        margin-bottom: 16px;
-      }
       label.field-label {
         display: block;
         font-weight: 700;
         font-size: 0.95rem;
         margin-bottom: 8px;
       }
-      .input-row { display: flex; gap: 8px; }
       #urlInput {
-        flex: 1 1 auto;
-        min-width: 0;
-        min-height: 52px;
+        width: 100%;
+        min-height: 54px;
         padding: 12px 14px;
         border: 1.5px solid var(--line);
-        border-radius: var(--radius-btn);
+        border-radius: 12px;
         background: var(--surface);
         color: var(--ink);
         font-size: 1rem;
@@ -102,8 +91,8 @@
         justify-content: center;
         gap: 8px;
         border: none;
-        border-radius: var(--radius-btn);
-        padding: 12px 18px;
+        border-radius: 12px;
+        padding: 12px 16px;
         font-weight: 700;
         font-size: 1rem;
         cursor: pointer;
@@ -116,8 +105,8 @@
         background: var(--accent);
         color: var(--accent-ink);
         width: 100%;
-        font-size: 1.08rem;
-        padding: 15px 18px;
+        font-size: 1.12rem;
+        padding: 15px 16px;
         margin-top: 12px;
       }
       .btn-ghost {
@@ -125,67 +114,23 @@
         color: var(--ink);
         border: 1px solid var(--line);
       }
-      .btn-small { min-height: 44px; padding: 10px 14px; font-size: 0.95rem; }
-      .btn-row { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-      .btn-row .btn { flex: 1 1 150px; }
-      .hint {
+      .btn-row { display: flex; gap: 8px; margin-top: 10px; }
+      .btn-row .btn { flex: 1 1 0; }
+      .btn-small { min-height: 44px; padding: 10px 12px; font-size: 0.95rem; flex: 0 0 96px !important; }
+      #statusLine {
+        display: none;
+        margin: 14px 0 0;
+        font-size: 0.97rem;
         color: var(--ink-soft);
-        font-size: 0.88rem;
-        margin: 10px 0 0;
+        align-items: center;
+        gap: 9px;
       }
-      .hint-error { color: var(--warn); font-weight: 600; }
-
-      /* Preview */
-      #preview { display: none; margin-top: 16px; }
-      #preview.show { display: flex; gap: 12px; align-items: center; }
-      #thumb {
-        width: 118px; height: 88px;
-        object-fit: cover;
-        border-radius: 10px;
-        background: var(--surface-2);
-        flex: 0 0 auto;
-      }
-      .preview-meta { min-width: 0; }
-      .preview-meta .vid {
-        font-weight: 700;
-        font-size: 0.95rem;
-        word-break: break-all;
-      }
-      .preview-meta .canon {
-        color: var(--ink-soft);
-        font-size: 0.82rem;
-        word-break: break-all;
-      }
-
-      /* Status steps */
-      #statusBox { display: none; margin-top: 16px; }
-      #statusBox.show { display: block; }
-      .steps { list-style: none; margin: 0; padding: 0; }
-      .steps li {
-        display: flex; gap: 10px; align-items: flex-start;
-        padding: 7px 0;
-        color: var(--ink-soft);
-        font-size: 0.95rem;
-      }
-      .steps li .dot {
-        flex: 0 0 auto;
-        width: 22px; height: 22px;
-        border-radius: 50%;
-        border: 2px solid var(--line);
-        display: inline-flex; align-items: center; justify-content: center;
-        font-size: 0.75rem; font-weight: 800;
-        margin-top: 1px;
-        background: var(--surface);
-        color: var(--ink-soft);
-      }
-      .steps li.active { color: var(--ink); font-weight: 600; }
-      .steps li.active .dot { border-color: var(--accent); color: var(--accent); }
-      .steps li.done { color: var(--ink); }
-      .steps li.done .dot { border-color: var(--ok); background: var(--ok-soft); color: var(--ok); }
-      .steps li.fail { color: var(--warn); font-weight: 600; }
-      .steps li.fail .dot { border-color: var(--warn); background: var(--warn-soft); color: var(--warn); }
+      #statusLine.show { display: flex; }
+      #statusLine.done { color: var(--ok); font-weight: 600; }
+      #statusLine.fail { color: var(--warn); font-weight: 600; }
       .spinner {
-        width: 12px; height: 12px;
+        flex: 0 0 auto;
+        width: 14px; height: 14px;
         border: 2px solid var(--accent-soft);
         border-top-color: var(--accent);
         border-radius: 50%;
@@ -196,15 +141,12 @@
         .spinner { animation: none; }
         .btn:active { transform: none; }
       }
-
-      /* Result panels */
-      .panel { display: none; border-radius: var(--radius-btn); padding: 14px 16px; margin-top: 16px; }
+      .panel { display: none; border-radius: 12px; padding: 14px 16px; margin-top: 14px; }
       .panel.show { display: block; }
       .panel h3 { margin: 0 0 6px; font-size: 1rem; }
       .panel p { margin: 6px 0; font-size: 0.93rem; }
       .panel-ok { background: var(--ok-soft); border: 1px solid var(--ok); }
       .panel-warn { background: var(--warn-soft); border: 1px solid var(--warn); }
-      .panel audio { width: 100%; margin-top: 10px; }
       .panel .btn { margin-top: 10px; width: 100%; }
       .btn-ok { background: var(--ok); color: #fff; }
       .btn-warn { background: var(--warn); color: #fff; }
@@ -212,242 +154,85 @@
         .btn-ok, .btn-warn { color: #131110; }
       }
       .filename { font-weight: 700; word-break: break-all; }
-      .inapp-note {
-        margin-top: 12px;
-        background: var(--warn-soft);
-        border: 1px solid var(--warn);
-        border-radius: var(--radius-btn);
-        padding: 12px 14px;
-        font-size: 0.93rem;
-      }
-
-      /* Info sections */
-      h2.section-title {
-        font-size: 1.12rem;
-        margin: 0 0 10px;
-        font-weight: 800;
-      }
-      ol.howto, ul.notes { margin: 0; padding-left: 22px; }
-      ol.howto li, ul.notes li { margin: 7px 0; font-size: 0.95rem; }
-      .compare { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
-      .compare th, .compare td {
-        text-align: left;
-        padding: 9px 8px;
-        border-bottom: 1px solid var(--line);
-        vertical-align: top;
-      }
-      .compare th { font-weight: 700; }
-      .compare tr:last-child th, .compare tr:last-child td { border-bottom: none; }
-      .tag {
-        display: inline-block;
-        font-size: 0.78rem; font-weight: 700;
-        padding: 2px 9px;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        white-space: nowrap;
-      }
-      code {
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-size: 0.88em;
-        background: var(--surface-2);
-        padding: 1px 6px;
-        border-radius: 6px;
-      }
+      .hint { color: var(--ink-soft); font-size: 0.88rem; margin: 10px 0 0; }
+      .hint-error { color: var(--warn); font-weight: 600; }
+      .feedback { min-height: 1.2em; }
     </style>
   </head>
   <body>
     <main class="wrap">
       <p class="lede">
-        Sao chép link YouTube → mở trang này → bấm <strong>Dán &amp; Tải</strong>.
-        Trang tự lấy link, tự xin file MP3 và tự tải về, Anh không phải gõ hay chuyển trang thủ công nữa.
+        Dán link YouTube → bấm <strong>Tải nhạc</strong>. Trang thử MP3 trước;
+        bài nào MP3 bị chặn thì hiện ngay nút lấy file <strong>.m4a</strong>.
       </p>
 
-      <div class="panel panel-warn" id="inAppBanner" style="margin: 0 0 16px;">
-        <h3>⚠️ Đang mở trong app — lưu file về máy thì làm theo cách này</h3>
-        <p>
-          Trang đang được mở trong <strong>trình duyệt tích hợp của app</strong> — trình duyệt này không tải/lưu file về máy được:
-          bấm nút tải sẽ không có phản hồi, nhấn giữ vào trình phát cũng không có nút tải. Đó là giới hạn của trình duyệt trong app, không phải lỗi trang.
-          Menu <strong>⋯</strong> của app cũng <strong>không có</strong> mục “Mở trong Safari”, nên đừng tìm mục đó.
-        </p>
-        <p>
-          Cách tải được ngay: cứ bấm <strong>Dán &amp; Tải</strong> như thường ở đây. Khi trang báo <strong>“Đã lấy được file nhạc”</strong>,
-          trong khung xanh sẽ có nút <strong>“Sao chép link tải”</strong> — bấm nút đó, rồi mở app <strong>Safari</strong>,
-          dán link vào thanh địa chỉ và bấm Đi: file MP3 tự tải về app Tệp.
-        </p>
+      <label class="field-label" for="urlInput">Link video YouTube</label>
+      <input
+        id="urlInput"
+        type="url"
+        inputmode="url"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="Dán link vào đây, ví dụ: youtube.com/watch?v=…"
+      />
+      <div class="btn-row">
+        <button type="button" class="btn btn-ghost" id="pasteBtn">📋 Dán từ bộ nhớ tạm</button>
+        <button type="button" class="btn btn-ghost btn-small" id="clearBtn">Xóa</button>
+      </div>
+      <button type="button" class="btn btn-primary" id="goBtn">⬇ Tải nhạc</button>
+      <p class="hint" id="inputHint">Dán link vào ô là trang tự chạy luôn, khỏi bấm thêm.</p>
+
+      <p id="statusLine" aria-live="polite"><span id="statusText"></span></p>
+
+      <div class="panel panel-ok" id="okPanel">
+        <h3>✅ Đã lấy được MP3</h3>
+        <p class="filename" id="okName"></p>
+        <p id="okSize"></p>
+        <a class="btn btn-ok" id="okDownload" href="#" rel="noopener">⬇ Tải MP3 về máy</a>
+        <button type="button" class="btn btn-ghost" id="okCopy">🔗 Sao chép link tải</button>
+        <p class="hint feedback" id="okFeedback" aria-live="polite"></p>
+        <p class="hint">Đang mở trong app mà nút tải không chạy: bấm <strong>Sao chép link tải</strong> → mở Safari → dán link → bấm Đi, file về app Tệp.</p>
       </div>
 
-      <section class="card" aria-label="Tải nhạc từ link YouTube">
-        <label class="field-label" for="urlInput">Link video YouTube</label>
-        <div class="input-row">
-          <input
-            id="urlInput"
-            type="url"
-            inputmode="url"
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-            placeholder="Dán link vào đây, ví dụ: youtube.com/watch?v=…"
-          />
-        </div>
-        <div class="btn-row">
-          <button type="button" class="btn btn-ghost" id="pasteBtn">📋 Dán từ bộ nhớ tạm</button>
-          <button type="button" class="btn btn-ghost btn-small" id="clearBtn">Xóa</button>
-        </div>
-        <button type="button" class="btn btn-primary" id="goBtn">⬇ Dán &amp; Tải MP3</button>
-        <p class="hint" id="inputHint">
-          Mẹo: cứ dán link vào ô trên là trang tự chạy luôn, khỏi bấm thêm.
-          Nếu nút dán bị trình duyệt chặn, Anh nhấn giữ vào ô rồi chọn “Dán”.
-        </p>
-
-        <div id="preview">
-          <img id="thumb" alt="Ảnh bìa của video" />
-          <div class="preview-meta">
-            <div class="vid" id="previewId"></div>
-            <div class="canon" id="previewUrl"></div>
-          </div>
-        </div>
-
-        <div id="statusBox" aria-live="polite">
-          <ol class="steps">
-            <li id="step1"><span class="dot">1</span><span class="step-text">Nhận diện link</span></li>
-            <li id="step2"><span class="dot">2</span><span class="step-text">Xin link tải MP3 từ máy chủ</span></li>
-            <li id="step3"><span class="dot">3</span><span class="step-text">Tải file về máy</span></li>
-            <li id="step4"><span class="dot">4</span><span class="step-text">Hoàn tất</span></li>
-          </ol>
-        </div>
-
-        <div class="panel panel-ok" id="okPanel">
-          <h3>✅ Đã lấy được file nhạc</h3>
-          <p class="filename" id="okName"></p>
-          <p id="okSize"></p>
-          <audio id="okAudio" controls preload="metadata"></audio>
-          <a class="btn btn-ok" id="okDownload" href="#" rel="noopener">⬇ Tải MP3 về máy</a>
-          <button type="button" class="btn btn-ghost" id="okShare">📤 Chia sẻ / Lưu vào Tệp</button>
-          <button type="button" class="btn btn-ghost" id="okCopy">🔗 Sao chép link tải</button>
-          <p class="hint" id="okFeedback" aria-live="polite"></p>
-          <p class="hint">
-            Trình phát ở trên chỉ để nghe thử, nhấn giữ vào nó không có nút tải đâu Anh.
-            Mở bằng <strong>Safari</strong> thì bấm <strong>Tải MP3 về máy</strong> là file tự tải về;
-            hoặc bấm <strong>Chia sẻ / Lưu vào Tệp</strong> → chọn <strong>“Lưu vào Tệp”</strong> trong bảng chia sẻ.
-          </p>
-          <div class="inapp-note" id="okInAppNote" hidden>
-            ⚠️ Anh đang mở trang trong trình duyệt của app — trình duyệt này không lưu file về máy được, nên 2 nút tải/chia sẻ ở trên có thể bấm mà không có gì xảy ra,
-            và menu <strong>⋯</strong> của app cũng không có mục “Mở trong Safari”.
-            Cách chắc chắn: bấm nút <strong>“Sao chép link tải”</strong> ở trên → mở app <strong>Safari</strong> → dán link vào thanh địa chỉ → bấm Đi, file MP3 sẽ tải về app Tệp.
-          </div>
-        </div>
-
-        <div class="panel panel-warn" id="blockedPanel">
-          <h3>⚠️ Bài này bị YouTube chặn ở máy chủ MP3</h3>
-          <p id="blockedReason">
-            Máy chủ MP3 trả về file rỗng 0 KB hoặc đòi đăng nhập — đúng lỗi của Lưu Niên và Saigon Noir.
-            Đừng tải lại đường này, file vẫn rỗng. Dùng đường dự phòng bên dưới: lấy file <strong>.m4a</strong> qua ssyoutube, đã thử tải được đúng bài Lưu Niên (3,6 MB, nghe bình thường trong Tệp và app Nhạc).
-          </p>
-          <a class="btn btn-warn" id="ssBtnBlocked" href="#" rel="noopener">Mở ssyoutube với đúng bài này →</a>
-          <button type="button" class="btn btn-ghost" id="ssCopyBlocked">🔗 Sao chép link ssyoutube</button>
-          <p class="hint" id="ssBlockedFeedback" aria-live="polite"></p>
-          <p class="hint">Nút trên chuyển thẳng sang ssyoutube ngay trong khung này, không mở tab mới. Đang mở trong app mà bấm vẫn không chuyển thì bấm <strong>“Sao chép link ssyoutube”</strong>, mở app <strong>Safari</strong>, dán link vào thanh địa chỉ rồi bấm Đi.</p>
-          <p class="hint">Qua trang đó: bấm “Show more” nếu chưa thấy mục chỉ âm thanh → chọn <strong>131.m4a</strong> → <strong>nhấn giữ</strong> nút Download → “Tải về tệp được liên kết”. Có tab quảng cáo bật kèm thì đóng đi.</p>
-        </div>
-      </section>
-
-      <section class="card" aria-label="Đường dự phòng ssyoutube">
-        <h2 class="section-title">Đường dự phòng: ssyoutube (.m4a)</h2>
-        <p style="margin:0 0 6px; font-size:0.95rem;">
-          Bài nào tải MP3 bị rỗng 0 KB thì qua đường này. Trang tự điền sẵn mã video, Anh chỉ việc chọn file âm thanh và lưu về.
-        </p>
-        <a class="btn btn-ghost" id="ssBtn" href="#" rel="noopener" style="width:100%; margin-top:8px;">Mở ssyoutube cho video này</a>
-        <button type="button" class="btn btn-ghost" id="ssCopy" style="width:100%; margin-top:8px;">🔗 Sao chép link ssyoutube</button>
-        <p class="hint" id="ssFeedback" aria-live="polite"></p>
-        <p class="hint">Cần dán link hợp lệ ở ô trên trước. Nút mở chuyển thẳng sang ssyoutube ngay trong khung này, không mở tab mới; đang mở trong app mà bấm không chuyển thì sao chép link rồi dán vào Safari. Link tải bên ssyoutube chỉ sống vài tiếng, mỗi lần tải thì làm mới từ đầu.</p>
-      </section>
-
-      <section class="card" aria-label="So sánh tốc độ">
-        <h2 class="section-title">Có nhanh hơn cách cũ không?</h2>
-        <table class="compare">
-          <tr>
-            <th style="width:34%;">Tự làm trên ssyoutube</th>
-            <td>Mở web → tự dán link → chờ → tự tìm nút tải: khoảng 5–6 thao tác.</td>
-          </tr>
-          <tr>
-            <th>Trang này <span class="tag">nhanh hơn</span></th>
-            <td>Sao chép link → mở trang này → bấm <strong>Dán &amp; Tải</strong>: 3 thao tác, phần còn lại tự chạy, bị chặn thì trang tự báo và đưa sẵn nút qua ssyoutube đúng bài đó.</td>
-          </tr>
-          <tr>
-            <th>Tốc độ tải file</th>
-            <td>Vẫn tùy máy chủ bên ngoài, trang này không làm máy chủ nhanh hơn được — cái nhanh hơn là số bước Anh phải làm.</td>
-          </tr>
-        </table>
-      </section>
-
-      <section class="card" aria-label="Lưu ý">
-        <h2 class="section-title">Lưu ý nhanh</h2>
-        <ul class="notes">
-          <li><strong>MP3 tự động</strong> chạy qua máy chủ cobalt (chính: <code>rue-cobalt.xenon.zone</code>, dự phòng: <code>cobaltapi.cjs.nz</code>) — cùng máy chủ với phím tắt Anh đã làm, nên bài nào phím tắt tải được thì ở đây cũng tải được, và ngược lại.</li>
-          <li>Bài bị YouTube bắt đăng nhập (nhiều bài nhạc Việt) sẽ về <strong>0 KB</strong> ở đường MP3 — trang tự phát hiện file rỗng và không cho lưu file hỏng.</li>
-          <li>File <strong>.m4a</strong> không phải MP3 nhưng iPhone phát thẳng trong app Tệp và app Nhạc, không cần đổi đuôi.</li>
-          <li>Trang này không lưu lại link hay file nào của Anh — mỗi lần mở là làm mới từ đầu.</li>
-        </ul>
-      </section>
+      <div class="panel panel-warn" id="blockedPanel">
+        <h3>⚠️ MP3 bị chặn — lấy file .m4a thay thế</h3>
+        <p>Bài này YouTube bắt đăng nhập nên máy chủ MP3 không lấy được ở bất kỳ định dạng nào. Lấy file <strong>.m4a</strong> qua ssyoutube: mở trang đó → chọn <strong>131.m4a</strong> → nhấn giữ nút Download → “Tải về tệp được liên kết”. File .m4a nghe bình thường trong app Tệp và app Nhạc.</p>
+        <a class="btn btn-warn" id="ssBtnBlocked" href="#" rel="noopener">Mở ssyoutube với đúng bài này →</a>
+        <button type="button" class="btn btn-ghost" id="ssCopyBlocked">🔗 Sao chép link ssyoutube</button>
+        <p class="hint feedback" id="ssBlockedFeedback" aria-live="polite"></p>
+        <p class="hint">Đang mở trong app mà bấm mở không chuyển: sao chép link rồi dán vào Safari.</p>
+      </div>
     </main>
 
     <script>
       (function () {
         "use strict";
 
-        var COBALT_MAIN = "https://rue-cobalt.xenon.zone/";
-        var COBALT_BACKUP = "https://cobaltapi.cjs.nz/";
+        var COBALT_SERVERS = [
+          "https://rue-cobalt.xenon.zone/",
+          "https://cobaltapi.cjs.nz/"
+        ];
 
         var input = document.getElementById("urlInput");
         var hint = document.getElementById("inputHint");
         var pasteBtn = document.getElementById("pasteBtn");
         var clearBtn = document.getElementById("clearBtn");
         var goBtn = document.getElementById("goBtn");
-        var preview = document.getElementById("preview");
-        var thumb = document.getElementById("thumb");
-        var previewId = document.getElementById("previewId");
-        var previewUrl = document.getElementById("previewUrl");
-        var statusBox = document.getElementById("statusBox");
+        var statusLine = document.getElementById("statusLine");
+        var statusText = document.getElementById("statusText");
         var okPanel = document.getElementById("okPanel");
         var okName = document.getElementById("okName");
         var okSize = document.getElementById("okSize");
-        var okAudio = document.getElementById("okAudio");
-        var okShare = document.getElementById("okShare");
+        var okDownload = document.getElementById("okDownload");
         var okCopy = document.getElementById("okCopy");
         var okFeedback = document.getElementById("okFeedback");
-        var okDownload = document.getElementById("okDownload");
-        var okInAppNote = document.getElementById("okInAppNote");
-        var inAppBanner = document.getElementById("inAppBanner");
         var blockedPanel = document.getElementById("blockedPanel");
-        var blockedReason = document.getElementById("blockedReason");
-        var ssBtn = document.getElementById("ssBtn");
         var ssBtnBlocked = document.getElementById("ssBtnBlocked");
         var ssCopyBlocked = document.getElementById("ssCopyBlocked");
         var ssBlockedFeedback = document.getElementById("ssBlockedFeedback");
-        var ssCopy = document.getElementById("ssCopy");
-        var ssFeedback = document.getElementById("ssFeedback");
-
-        /* Phát hiện trình duyệt tích hợp trong app (webview): loại trình duyệt này
-           không xử lý tải file — bấm nút tải không có phản hồi. Phát hiện qua
-           user-agent: iOS mà không có token của Safari thật / Chrome / Firefox. */
-        function detectInAppBrowser() {
-          var ua = navigator.userAgent || "";
-          if (/FBAN|FBAV|Instagram|Line\/|Zalo|;\s*wv\)/.test(ua)) return true;
-          if (/iPhone|iPad|iPod/.test(ua)) {
-            if (/CriOS|FxiOS|EdgiOS|OPiOS/.test(ua)) return false;
-            if (/Version\/[\d.]+/.test(ua) && /Safari\//.test(ua)) return false;
-            return /AppleWebKit/.test(ua);
-          }
-          return false;
-        }
-        var IN_APP = detectInAppBrowser();
-        if (IN_APP && inAppBanner) inAppBanner.classList.add("show");
 
         var currentId = null;
-        var currentObjectUrl = null;
-        var currentBlob = null;
-        var currentFilename = "";
         var currentTunnelUrl = null;
         var busy = false;
         var autoTimer = null;
@@ -471,26 +256,16 @@
           return "https://www.ssyoutube.com/watch?v=" + id;
         }
 
-        function setStep(n, state, text) {
-          var li = document.getElementById("step" + n);
-          if (!li) return;
-          li.className = state || "";
-          if (text) {
-            li.querySelector(".step-text").textContent = text;
+        function setStatus(state, text) {
+          statusLine.className = "show" + (state && state !== "busy" ? " " + state : "");
+          statusText.textContent = text;
+          var old = statusLine.querySelector(".spinner");
+          if (old) statusLine.removeChild(old);
+          if (state === "busy") {
+            var sp = document.createElement("span");
+            sp.className = "spinner";
+            statusLine.insertBefore(sp, statusText);
           }
-          var dot = li.querySelector(".dot");
-          if (state === "done") dot.textContent = "✓";
-          else if (state === "fail") dot.textContent = "!";
-          else if (state === "active") dot.innerHTML = '<span class="spinner"></span>';
-          else dot.textContent = String(n);
-        }
-
-        function resetSteps() {
-          statusBox.classList.add("show");
-          setStep(1, "", "Nhận diện link");
-          setStep(2, "", "Xin link tải MP3 từ máy chủ");
-          setStep(3, "", "Tải file về máy");
-          setStep(4, "", "Hoàn tất");
         }
 
         function hidePanels() {
@@ -498,34 +273,10 @@
           blockedPanel.classList.remove("show");
         }
 
-        function showPreview(id) {
-          currentId = id;
-          preview.classList.add("show");
-          previewId.textContent = "Mã video: " + id;
-          previewUrl.textContent = canonical(id);
-          thumb.src = "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
-          thumb.style.display = "";
-          ssBtn.href = ssUrl(id);
-          ssBtnBlocked.href = ssUrl(id);
-        }
-
-        thumb.addEventListener("error", function () {
-          thumb.style.display = "none";
-        });
-
         function formatSize(bytes) {
           if (bytes >= 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(1).replace(".", ",") + " MB";
           if (bytes >= 1024) return Math.round(bytes / 1024) + " KB";
           return bytes + " byte";
-        }
-
-        function showBlocked(reasonText) {
-          hidePanels();
-          if (reasonText) {
-            blockedReason.textContent = reasonText;
-          }
-          blockedPanel.classList.add("show");
-          setStep(4, "fail", "Bị chặn — dùng đường .m4a ở khung dưới");
         }
 
         function fetchWithTimeout(url, options, ms) {
@@ -570,6 +321,57 @@
           });
         }
 
+        /* Hỏi cả 2 máy chủ cùng lúc, máy chủ nào trả link trước thì dùng luôn.
+           Cả 2 cùng lỗi mới coi là bị chặn. */
+        function askCobaltParallel(videoUrl) {
+          return new Promise(function (resolve, reject) {
+            var settled = false;
+            var failed = 0;
+            var lastErr = null;
+            COBALT_SERVERS.forEach(function (base) {
+              askCobalt(base, videoUrl).then(function (data) {
+                if (!settled) {
+                  settled = true;
+                  resolve(data);
+                }
+              }, function (err) {
+                lastErr = err;
+                failed++;
+                if (!settled && failed === COBALT_SERVERS.length) {
+                  settled = true;
+                  reject(lastErr || new Error("Cả 2 máy chủ đều lỗi"));
+                }
+              });
+            });
+          });
+        }
+
+        /* Kiểm tra link tunnel bằng HEAD: bài bị chặn trả dung lượng ước tính -1. */
+        function checkTunnel(url) {
+          return fetchWithTimeout(url, { method: "HEAD" }, 20000).then(function (res) {
+            var est = res.headers.get("estimated-content-length");
+            var len = res.headers.get("content-length");
+            var size = null;
+            if (est !== null && est !== "") size = parseInt(est, 10);
+            else if (len !== null && len !== "") size = parseInt(len, 10);
+            if (size !== null && !isNaN(size)) {
+              if (size <= 0) throw new Error("gated");
+              return size;
+            }
+            return null;
+          });
+        }
+
+        function showBlocked() {
+          hidePanels();
+          ssBtnBlocked.href = ssUrl(currentId);
+          ssBlockedFeedback.textContent = "";
+          blockedPanel.classList.add("show");
+          setStatus("fail", "MP3 bị chặn — dùng file .m4a ở khung dưới.");
+          var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          blockedPanel.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
+        }
+
         function startDownload() {
           if (busy) return;
           var raw = input.value.trim();
@@ -585,93 +387,47 @@
           }
           input.classList.remove("invalid");
           hint.classList.remove("hint-error");
-
-          showPreview(id);
-          resetSteps();
-          setStep(1, "done", "Đã nhận diện video " + id);
-          setStep(2, "active", "Đang xin link tải MP3…");
+          currentId = id;
+          currentTunnelUrl = null;
 
           busy = true;
           goBtn.disabled = true;
           goBtn.textContent = "Đang tải…";
+          setStatus("busy", "Đang hỏi cả 2 máy chủ MP3 cùng lúc…");
 
-          var videoUrl = canonical(id);
-
-          askCobalt(COBALT_MAIN, videoUrl)
-            .catch(function (err) {
-              setStep(2, "active", "Máy chủ chính lỗi (" + (err.cobaltCode || err.message) + ") — thử máy chủ dự phòng…");
-              return askCobalt(COBALT_BACKUP, videoUrl);
-            })
+          askCobaltParallel(canonical(id))
             .then(function (data) {
-              setStep(2, "done", "Đã có link tải" + (data.filename ? ": " + data.filename : ""));
-              setStep(3, "active", "Đang tải file về máy…");
-              return fetchWithTimeout(data.url, {}, 120000).then(function (res) {
-                if (!res.ok) throw new Error("HTTP " + res.status);
-                return res.blob().then(function (blob) {
-                  return { blob: blob, filename: data.filename || ("nhac-" + id + ".mp3"), url: data.url };
-                });
-              }).catch(function (fetchErr) {
-                // Trình duyệt chặn tải thẳng file (CORS) — đi thẳng tới link tải thay thế
-                // (không mở tab mới: trình duyệt trong app chặn tab mới nên bấm sẽ im lặng).
-                var a = document.createElement("a");
-                a.href = data.url;
-                a.rel = "noopener";
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                setStep(3, "done", "Đã chuyển tới link tải");
-                setStep(4, "done", "Xong — kiểm tra app Tệp");
-                throw { openedExternally: true };
+              setStatus("busy", "Đã có link tải — đang kiểm tra file…");
+              return checkTunnel(data.url).then(function (size) {
+                return { data: data, size: size };
+              }, function (err) {
+                if (err && err.message === "gated") throw err;
+                /* Không đọc được dung lượng thì không chặn oan: vẫn đưa link tải. */
+                return { data: data, size: null };
               });
             })
             .then(function (result) {
-              if (!result) return;
-              if (!result.blob || result.blob.size === 0) {
-                setStep(3, "fail", "File trả về rỗng 0 KB — bài này bị YouTube chặn");
-                showBlocked();
-                return;
-              }
-              setStep(3, "done", "Đã lấy được file " + formatSize(result.blob.size));
-              if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
-              currentObjectUrl = URL.createObjectURL(result.blob);
-              currentBlob = result.blob;
-              currentFilename = result.filename;
-              currentTunnelUrl = result.url || null;
-              okName.textContent = result.filename;
-              okSize.textContent = "Dung lượng: " + formatSize(result.blob.size) + " — file đã lấy về trang, nghe thử ngay tại đây hoặc bấm nút xanh bên dưới để tải hẳn về máy.";
-              okAudio.src = currentObjectUrl;
-              if (currentTunnelUrl) {
-                okDownload.href = currentTunnelUrl;
-                okDownload.style.display = "";
-              } else {
-                okDownload.style.display = "none";
-              }
-              if (IN_APP && okInAppNote) okInAppNote.hidden = false;
-              setFeedback("");
+              var data = result.data;
+              currentTunnelUrl = data.url;
+              okName.textContent = data.filename || ("nhac-" + currentId + ".mp3");
+              okSize.textContent = result.size
+                ? "Dung lượng: " + formatSize(result.size)
+                : "File đã sẵn sàng để tải về máy.";
+              okDownload.href = data.url;
+              okFeedback.textContent = "";
               hidePanels();
               okPanel.classList.add("show");
-              if (IN_APP) {
-                setStep(4, "fail", "File đã sẵn — bấm “Sao chép link tải” ở khung xanh bên dưới, dán vào Safari để tải về máy");
-              } else {
-                setStep(4, "done", "Xong — bấm nút “Tải MP3 về máy” ở khung xanh bên dưới");
-              }
+              setStatus("done", "✅ Xong — bấm “Tải MP3 về máy” ở khung dưới.");
               var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
               okPanel.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
             })
-            .catch(function (err) {
-              if (err && err.openedExternally) return;
-              var code = err && err.cobaltCode ? err.cobaltCode : "";
-              setStep(2, "fail", "Máy chủ MP3 không lấy được bài này" + (code ? " (" + code + ")" : ""));
-              if (/login|auth/.test(code)) {
-                showBlocked("Máy chủ MP3 báo lỗi “" + code + "” — YouTube đòi đăng nhập mới cho lấy bài này, đúng lỗi đã gặp với Lưu Niên và Saigon Noir. Dùng đường dự phòng .m4a qua ssyoutube bên dưới, đường đó đã tải được đúng bài Lưu Niên (3,6 MB).");
-              } else {
-                showBlocked();
-              }
+            .catch(function () {
+              showBlocked();
             })
             .then(function () {
               busy = false;
               goBtn.disabled = false;
-              goBtn.textContent = "⬇ Dán & Tải MP3";
+              goBtn.textContent = "⬇ Tải nhạc";
             });
         }
 
@@ -684,10 +440,6 @@
 
         input.addEventListener("paste", function () {
           setTimeout(scheduleAuto, 60);
-        });
-        input.addEventListener("input", function () {
-          var id = extractVideoId(input.value.trim());
-          if (id && id !== currentId) showPreview(id);
         });
         input.addEventListener("keydown", function (e) {
           if (e.key === "Enter") {
@@ -720,8 +472,6 @@
             }
             input.value = text.trim();
             hint.classList.remove("hint-error");
-            var id = extractVideoId(text);
-            if (id) showPreview(id);
             if (autoStart) startDownload();
           }).catch(function () {
             input.focus();
@@ -732,16 +482,8 @@
 
         pasteBtn.addEventListener("click", function () { readClipboard(true); });
 
-        function setFeedback(text) {
-          if (okFeedback) okFeedback.textContent = text || "";
-        }
-
-        /* Sao chép link tải vào bộ nhớ tạm. Đường này chạy được cả trong trình
-           duyệt của app (nơi nút tải và bảng chia sẻ đều bị chặn): Anh dán link
-           vào thanh địa chỉ Safari là file tự tải về. */
         function copyText(text, doneMsg, feedbackEl) {
-          var el = feedbackEl || okFeedback;
-          function done() { if (el) el.textContent = doneMsg; }
+          function done() { if (feedbackEl) feedbackEl.textContent = doneMsg; }
           function fallback() {
             var ta = document.createElement("textarea");
             ta.value = text;
@@ -754,7 +496,7 @@
             try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
             document.body.removeChild(ta);
             if (ok) done();
-            else if (el) el.textContent = "Chưa sao chép được tự động. Anh nhấn giữ vào link này rồi chọn Sao chép: " + text;
+            else if (feedbackEl) feedbackEl.textContent = "Chưa sao chép được tự động. Anh nhấn giữ vào link này rồi chọn Sao chép: " + text;
           }
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(done, fallback);
@@ -763,66 +505,26 @@
           }
         }
 
-        function copyDownloadLink() {
-          if (!currentTunnelUrl) {
-            setFeedback("Chưa có link tải trực tiếp cho file này — Anh nghe thử ngay tại trang, hoặc mở trang bằng Safari rồi tải lại.");
-            return;
-          }
-          copyText(currentTunnelUrl, "✅ Đã sao chép link tải. Giờ mở app Safari → dán link vào thanh địa chỉ → bấm Đi, file MP3 sẽ tải về app Tệp. (Link chỉ sống ít phút, dán ngay nhé.)");
-        }
+        okCopy.addEventListener("click", function () {
+          if (!currentTunnelUrl) return;
+          copyText(currentTunnelUrl, "✅ Đã sao chép link tải. Mở Safari → dán vào thanh địa chỉ → bấm Đi, file MP3 tải về app Tệp. (Link chỉ sống ít phút, dán ngay nhé.)", okFeedback);
+        });
 
-        okCopy.addEventListener("click", copyDownloadLink);
-
-        /* Sao chép link ssyoutube của đúng video đang chọn: đường vòng qua app
-           giống hệt nút sao chép link tải MP3 — dán vào Safari là mở được,
-           khỏi phụ thuộc nút mở trang (tab mới bị trình duyệt trong app chặn). */
-        function copySsLink(feedbackEl) {
-          if (!currentId) {
-            if (feedbackEl) feedbackEl.textContent = "Anh dán link YouTube hợp lệ ở ô trên trước nhé.";
-            return;
-          }
-          copyText(ssUrl(currentId), "✅ Đã sao chép link ssyoutube. Mở app Safari → dán vào thanh địa chỉ → bấm Đi, rồi chọn file 131.m4a để tải bản .m4a về máy.", feedbackEl);
-        }
-
-        ssCopyBlocked.addEventListener("click", function () { copySsLink(ssBlockedFeedback); });
-        ssCopy.addEventListener("click", function () { copySsLink(ssFeedback); });
-
-        okShare.addEventListener("click", function () {
-          if (!currentBlob) return;
-          var file = null;
-          try {
-            file = new File([currentBlob], currentFilename, { type: currentBlob.type || "audio/mpeg" });
-          } catch (e) { file = null; }
-          if (file && navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-            navigator.share({ files: [file], title: currentFilename }).then(function () {
-              setFeedback("");
-            }, function () {
-              /* Anh tự đóng bảng chia sẻ, hoặc trình duyệt trong app chặn chia sẻ
-                 file: tự sao chép link tải làm đường thay thế, có báo rõ. */
-              copyDownloadLink();
-            });
-            return;
-          }
-          /* Không chia sẻ file được (hay gặp trong trình duyệt của app):
-             sao chép link tải để dán vào Safari, thay vì mở tab mới trong im lặng. */
-          copyDownloadLink();
+        ssCopyBlocked.addEventListener("click", function () {
+          if (!currentId) return;
+          copyText(ssUrl(currentId), "✅ Đã sao chép link ssyoutube. Mở Safari → dán vào thanh địa chỉ → bấm Đi, rồi chọn file 131.m4a để tải về.", ssBlockedFeedback);
         });
 
         clearBtn.addEventListener("click", function () {
           input.value = "";
           currentId = null;
-          currentBlob = null;
-          currentFilename = "";
           currentTunnelUrl = null;
-          preview.classList.remove("show");
-          statusBox.classList.remove("show");
-          setFeedback("");
-          if (ssFeedback) ssFeedback.textContent = "";
-          if (ssBlockedFeedback) ssBlockedFeedback.textContent = "";
+          statusLine.className = "";
+          statusText.textContent = "";
           hidePanels();
           input.classList.remove("invalid");
           hint.classList.remove("hint-error");
-          hint.textContent = "Mẹo: cứ dán link vào ô trên là trang tự chạy luôn, khỏi bấm thêm. Nếu nút dán bị trình duyệt chặn, Anh nhấn giữ vào ô rồi chọn “Dán”.";
+          hint.textContent = "Dán link vào ô là trang tự chạy luôn, khỏi bấm thêm.";
           input.focus();
         });
 
